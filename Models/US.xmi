@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MMUS:Backlog
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:MMUS="http://eclipse.MMUS.com">
+  <uss id="1"
+      description="stuendt_us">
+    <activities
+        preconditions="Pre_Condition_for_student"
+        postconditions="Post_Condition_for_student"
+        id="1"
+        name="pass exam"/>
+    <roles name="student"/>
+    <values
+        value="sucess"/>
+  </uss>
+  <uss id="2"
+      description="teacher_us">
+    <activities
+        preconditions="PreCondition_for_teacher"
+        postconditions="PostCondition_for_teacher"
+        id="2"
+        name="teacher_act"/>
+    <roles name="teacher"/>
+    <values
+        value="teacher_value"/>
+  </uss>
+</MMUS:Backlog>
