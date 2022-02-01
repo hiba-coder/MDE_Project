@@ -13,7 +13,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WorkflowProcess" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="activityxpdl" upperBound="-1"
-        eType="#//Activity" containment="true"/>
+        eType="ecore:EClass ../../Project_MDE__/model/XPDL.ecore#//Activity" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transition" upperBound="-1"
         eType="#//Transition" containment="true"/>
   </eClassifiers>

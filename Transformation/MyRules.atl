@@ -8,61 +8,21 @@ create OUT : MMXPDL from IN : MMUS;
 rule FirstRuleTransformation{
 	from 
 		us: MMUS!UserStory
-		us : usestory1
-	to
-		wp: MMXPDL!WorkflowProcess(
-			Pool <- us.Role,
-			
-			MMUS!Backlog.allInstances()->collect(us)
-			for(uss in MMUS!Backlog.allInstances()){
-				if(uss.Role == us.Role)
-					activities.append(uss.Activity)
-			}
-			Activity <- activities 
-			
-			
-			for(p in MMPerson!Person.allInstances()) {
-				if(p.gender = #male)
-					thisModule.men->including(aPerson);
-				else
-					thisModule.women->including(aPerson);
-			}
-			
-			
-			
-		)
-			
-}
-
------------Fin Rule 1----------------
-----------Rule 2----------
-rule FirstRuleTransformation{
-	from 
-		backlog: MMUS!Backlog
 	
 	to
-		workflowprocesses: MMXPDL!WorkflowProcesses{
-		workflowprocesses <- backlog
-		}
+		workflowprocesses: MMXPDL!WorkflowProcesses
+
+    do{
+        'Bukatuta'.println();   
+    }
 			
 }
+-----------Fin Rule 1----------------
+----------Rule 2----------
 
 -----------Fin Rule 2----------------
 
+---------Helper------------role : MMUS!UserStory.Role Set(self.Activity)
+helper context MMUS!UserStory def:getActivitesByRole():String = MMUS!UserStory.allInstances() -> collect(us| us.id);
 
-
-
---lenghtBackolg size() 
-sur US : le premier role à trouver R1
-Process p1 = new Process(R1)
-activitesXPDL[]
-uss[]
-for(US u:USs)
-	if(u.role==R1)
-	uss.add(uss.id)
-	activitesXPDL.add(US.activity)
-p1.addActvityXPDL(activitesXPDL)
-for(US numU: uss)
-	if(numU!=lenghtBackolg)
-	p1.addTransition(numU -> numU+1)
 

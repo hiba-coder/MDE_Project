@@ -4,7 +4,7 @@
     <semanticResources>My.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_W2s5UIE7EeyS_o47H4vjoA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_XUj6AIE7EeyS_o47H4vjoA" name="MMUS class diagram" repPath="#_XUfBgIE7EeyS_o47H4vjoA" changeId="69c1db75-ca16-445a-b9ea-c6870f5946b7">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_XUj6AIE7EeyS_o47H4vjoA" name="MMUS class diagram" repPath="#_XUfBgIE7EeyS_o47H4vjoA" changeId="4e5ec2bf-94db-44d0-b06d-b3fd86dac6cd">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="My.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -290,6 +290,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_X23V04E7EeyS_o47H4vjoA" description="_X23V0IE7EeyS_o47H4vjoA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_X23V1YE7EeyS_o47H4vjoA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_X23V1IE7EeyS_o47H4vjoA" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
@@ -303,6 +304,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_X2384IE7EeyS_o47H4vjoA" description="_X23V0IE7EeyS_o47H4vjoA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_X2384oE7EeyS_o47H4vjoA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_X2384YE7EeyS_o47H4vjoA" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
@@ -316,6 +318,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_X25LAIE7EeyS_o47H4vjoA" description="_X23V0IE7EeyS_o47H4vjoA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_X25LAoE7EeyS_o47H4vjoA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_X25LAYE7EeyS_o47H4vjoA" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
@@ -329,6 +332,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_X26ZIIE7EeyS_o47H4vjoA" description="_X23V0IE7EeyS_o47H4vjoA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_X26ZIoE7EeyS_o47H4vjoA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_X26ZIYE7EeyS_o47H4vjoA" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>

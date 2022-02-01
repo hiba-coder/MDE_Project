@@ -1,0 +1,83 @@
+-- @path MMUS=/US2XPDL/MetaModels/My.ecore
+-- @path MMXPDL=/US2XPDL/MetaModels/XPDL.ecore
+
+module ATLRules;
+create OUT : MMXPDL from IN : MMUS;
+
+rule ActivitieslieeToProcess{
+	from 
+		act:MMUS!Activity
+	to
+		ws: MMXPDL!WorkflowProcess(
+				name <- 'P1',
+				activityxpdl <- act
+			)
+					
+			
+--			p1 lieeh l ga3 hadok les activites li 9adithom f XpDL 
+			--fonction 
+}
+
+
+rule FirstRuleTransformation{
+	from 
+		us: MMUS!UserStory
+		
+	to
+--	upposons que activity est atribu f process f xpdl et aussi role
+--		ws: MMXPL!WorkflowProcess(
+--				role <- 'student'
+--				activity <- us.getActivities('student')
+--			)
+--	ws : MMXPD!Activity(
+		--		id <- 1
+   --	 name <- us.getActivities('student').get(1)
+		--	)
+
+			
+		
+		
+		ws: MMXPDL!Activity(
+		 id <- us.getActivitesByRole() --.print()  --last()
+		 --id <- us.getActivites()
+		-- setActivitiesProcess(Process:MMXPDL!Workflowprocess, activities : Set(MMXPDL!Activity))
+		)
+
+    do{
+        us.getActivitesByRole(); 
+       -- us.getActivities('student').println(); --getKey()
+        'hiba'.println(); 
+    }
+			
+}
+-----------Fin Rule 1----------------
+----------Rule 2----------
+
+-----------Fin Rule 2----------------
+
+---------Helper------------role : MMUS!UserStory.Role Set(self.Activity) 
+helper context MMUS!UserStory def : getActivities(role : String) : Set(Sequence(String)) = --Set(MMUS!Activity)
+--if 'stdent'=role then
+if self.roles.name = role then
+ MMUS!UserStory.allInstances() -> collect(e | e.activities.name) ->	
+ --self.userstory->collect(e | e.activity)->
+ asSet()->
+ iterate(activity; list : Set(Sequence(String)) =  Sequence{}  |list.including(activity))
+ --- code number 3
+else self.roles.name
+endif;
+
+
+
+
+
+
+helper context MMUS!UserStory def:getActivitesByRole():Integer = MMUS!UserStory.allInstances() -> collect(us| us.id);
+
+helper context MMUS!UserStory def:getActivit():Integer = MMUS!UserStory.allInstances()-> iterate(e; sum : Integer = 0 |
+	sum +e
+);
+
+
+
+
