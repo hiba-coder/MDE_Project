@@ -25,4 +25,15 @@
     <values
         value="teacher_value"/>
   </uss>
+  <uss id="3"
+      description="user story avec role student">
+    <activities
+        preconditions="pre 6"
+        postconditions="post 5"
+        id="3"
+        name="activity student"/>
+    <roles name="student"/>
+    <values
+        value="value2"/>
+  </uss>
 </MMUS:Backlog>

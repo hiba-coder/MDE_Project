@@ -1,0 +1,27 @@
+-- @path MMUS=/US2XPDL/MetaModels/My.ecore
+-- @path MMXPDL=/US2XPDL/MetaModels/XPDL.ecore
+
+module Rulesnew;
+create OUT : MMXPDL from IN : MMUS;
+
+rule FirstRulTransformation{
+	from 
+		us: MMUS!UserStory
+		
+	to
+	
+	
+   		ws : MMXPDL!Activity(
+			id <- MMUS!UserStory.allInstances() -> select(e| e.roles.name = us.roles.name) -> collect(e | e.activities.id),-- -> asSequence()
+			name <- MMUS!UserStory.allInstances() -> select(e| e.roles.name = us.roles.name) -> collect(e | e.activities.name)  
+		),
+		  wps: MMXPDL!WorkflowProcess(
+				name <- 'P1',
+				activityxpdl <- ws
+			)
+		
+		   do{
+      
+    }
+		
+}

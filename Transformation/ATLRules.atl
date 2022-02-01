@@ -7,23 +7,61 @@ create OUT : MMXPDL from IN : MMUS;
 rule ActivitieslieeToProcess{
 	from 
 		act:MMUS!Activity
-	to
+		
+	to	
+		
+		actx : MMXPDL!Activity(
+			id <-'1',
+			name <- 'test'
+		),
+	
 		ws: MMXPDL!WorkflowProcess(
 				name <- 'P1',
-				activityxpdl <- act
+				activityxpdl <- actx
 			)
 					
-			
---			p1 lieeh l ga3 hadok les activites li 9adithom f XpDL 
-			--fonction 
+
 }
 
 
-rule FirstRuleTransformation{
+rule FirstRulTransformation{
 	from 
 		us: MMUS!UserStory
 		
 	to
+	
+	
+   		ws : MMXPDL!Activity(
+			id <- MMUS!UserStory.allInstances() -> select(e| e.roles.name = us.roles.name) -> collect(e | e.activities.id),-- -> asSequence()
+			name <- MMUS!UserStory.allInstances() -> select(e| e.roles.name = us.roles.name) -> collect(e | e.activities.name)  
+		),	
+		wps: MMXPDL!WorkflowProcess(
+				name <- 'P1',
+				activityxpdl <- ws
+			)
+}
+		
+		
+rule FirstRuleTransformation{
+	from 
+		bg: MMUS!Backlog
+		
+	to
+	
+		--ws: MMXPDL!Activity(
+		 --id <- bg.getActivitiesFromBG('student') Sequence {IN!pass exam, IN!activity student}
+		 --id <- us.getActivites()
+		-- setActivitiesProcess(Process:MMXPDL!Workflowprocess, activities : Set(MMXPDL!Activity))
+		--)
+		
+		ws: MMXPDL!WorkflowProcess(
+			name <- 'P1',
+			activityxpdl <- bg.getActivitiesFromBG('student')
+			)
+
+		
+	
+	
 --	upposons que activity est atribu f process f xpdl et aussi role
 --		ws: MMXPL!WorkflowProcess(
 --				role <- 'student'
@@ -31,21 +69,19 @@ rule FirstRuleTransformation{
 --			)
 --	ws : MMXPD!Activity(
 		--		id <- 1
-   --	 name <- us.getActivities('student').get(1)
+   --	 name <- us.getActivities('student').get(1)  
 		--	)
 
 			
 		
 		
-		ws: MMXPDL!Activity(
-		 id <- us.getActivitesByRole() --.print()  --last()
-		 --id <- us.getActivites()
-		-- setActivitiesProcess(Process:MMXPDL!Workflowprocess, activities : Set(MMXPDL!Activity))
-		)
+		
 
     do{
-        us.getActivitesByRole(); 
-       -- us.getActivities('student').println(); --getKey()
+        --bg.getActivitesByRole(); 
+       --bg.getActivitiesFromBG('student').println();
+       --us.getActivitiesFromUS('student').at(2).id.println(); --getKey()
+       --getActivitiesFromUS('student').at(2).name.println();
         'hiba'.println(); 
     }
 			
@@ -67,6 +103,25 @@ if self.roles.name = role then
 else self.roles.name
 endif;
 
+
+helper context MMUS!UserStory def : getActivitiesFromUS(role : String) : Sequence(MMUS!Activity)=
+--if 'stdent'=role then
+--if self.roles.name = role then
+ MMUS!UserStory.allInstances() ->	select(e| e.roles.name = role) -> collect(e | e.activities) -> asSequence();
+ --asSet();
+ -- -> iterate(activity; list : Set(MMUS!Activity) =  Sequence{}  |list.including(activity));
+
+--else ''
+--endif;
+helper context MMUS!Backlog def : getActivitiesFromBG(role : String) : Sequence(MMUS!Activity)=
+
+ self.uss ->	select(e| e.roles.name = role) -> collect(e | e.activities) -> asSequence();
+
+
+
+helper context MMUS!Backlog def : getActivitiesFromBGL(role : String) : Sequence(MMXPDL!Activity)= 
+self.uss ->	select(e| e.roles.name = role) -> collect(e | e.activities) -> asSequence() ;
+-- ->iterate(activity; list : Sequence(MMXPDL!Activity) =  Sequence{}  |list.including(MMXPDL!Activity(id<-'1',name<-'tst')));
 
 
 
